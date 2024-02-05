@@ -49,7 +49,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTime $update_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
-    private ?Subs $subscription_id = null;
+    private ?Subs $subscription = null;
 
 
 
@@ -167,12 +167,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getDateEndSubs(): ?\DateTimeImmutable
+    public function getDateEndSubs(): ?\DateTime
     {
         return $this->date_end_subs;
     }
 
-    public function setDateEndSubs(\DateTimeImmutable $date_end_subs): static
+    public function setDateEndSubs(\DateTime $date_end_subs): static
     {
         $this->date_end_subs = $date_end_subs;
 
@@ -191,12 +191,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeImmutable
+    public function getUpdateAt(): ?\DateTime
     {
         return $this->update_at;
     }
 
-    public function setUpdateAt(\DateTimeImmutable $update_at): static
+    public function setUpdateAt(\DateTime $update_at): static
     {
         $this->update_at = $update_at;
 
@@ -205,12 +205,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getSubscriptionId(): ?Subs
     {
-        return $this->subscription_id;
+        return $this->subscription;
     }
 
-    public function setSubscriptionId(?Subs $subscription_id): static
+    public function setSubscriptionId(?Subs $subscription): static
     {
-        $this->subscription_id = $subscription_id;
+        $this->subscription = $subscription;
 
         return $this;
     }
