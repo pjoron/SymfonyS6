@@ -36,17 +36,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $lastname = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $Role = null;
+    // #[ORM\Column(length: 50)]
+    // private ?string $role = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $date_end_subs = null;
+    private ?\DateTime $dateEndSubs = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
-    private ?\DateTime $created_at = null;
+    private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
-    private ?\DateTime $update_at = null;
+    private ?\DateTime $updateAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?Subs $subscription = null;
@@ -155,50 +155,50 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getRole(): ?string
-    {
-        return $this->Role;
-    }
+    // public function getRole(): ?string
+    // {
+    //     return $this->role;
+    // }
 
-    public function setRole(string $Role): static
-    {
-        $this->Role = $Role;
+    // public function setRole(string $role): static
+    // {
+    //     $this->role = $role;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getDateEndSubs(): ?\DateTime
     {
-        return $this->date_end_subs;
+        return $this->dateEndSubs;
     }
 
-    public function setDateEndSubs(\DateTime $date_end_subs): static
+    public function setDateEndSubs(\DateTime $dateEndSubs): static
     {
-        $this->date_end_subs = $date_end_subs;
+        $this->dateEndSubs = $dateEndSubs;
 
         return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $created_at): static
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     public function getUpdateAt(): ?\DateTime
     {
-        return $this->update_at;
+        return $this->updateAt;
     }
 
-    public function setUpdateAt(\DateTime $update_at): static
+    public function setUpdateAt(\DateTime $updateAt): static
     {
-        $this->update_at = $update_at;
+        $this->updateAt = $updateAt;
 
         return $this;
     }
