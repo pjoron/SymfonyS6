@@ -25,7 +25,7 @@ class Subs
     private ?string $media = null;
 
     #[ORM\Column]
-    private ?int $limits_pdf = null;
+    private ?int $limitsPdf = null;
 
     #[ORM\Column]
     private ?float $price = null;
@@ -81,12 +81,12 @@ class Subs
 
     public function getLimitsPdf(): ?int
     {
-        return $this->limits_pdf;
+        return $this->limitsPdf;
     }
 
-    public function setLimitsPdf(int $limits_pdf): static
+    public function setLimitsPdf(int $limitsPdf): static
     {
-        $this->limits_pdf = $limits_pdf;
+        $this->limitsPdf = $limitsPdf;
 
         return $this;
     }
