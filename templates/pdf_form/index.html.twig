@@ -1,0 +1,21 @@
+{# templates/pdf_form/new.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Convertir URL en PDF{% endblock %}
+
+{% block body %}
+    <h1>Convertir URL en PDF</h1>
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+
+    <form method="post">
+        <div class="form-group">
+            <label for="url">URL</label>
+            <input type="text" id="url" name="url" class="form-control" placeholder="Entrez une URL valide" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Convertir</button>
+    </form>
+{% endblock %}
