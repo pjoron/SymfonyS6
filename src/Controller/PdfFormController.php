@@ -15,18 +15,29 @@ class PdfFormController extends AbstractController
     {
         if ($request->isMethod('POST')) {
             $url = $request->request->get('url');
-            
+    
             if (filter_var($url, FILTER_VALIDATE_URL)) {
-                $conversion = $gotenberg->fetchGitHubInformation(['url' => $url]);
+                $convertedPdf = $gotenberg->fetchGitHubInformation(['url' => $url]);
+    
+                
+                // $basePdf = $gotenberg->createBasePdf();
+    
+                
+                // $mergedPdf = $gotenberg->mergePdfs([$convertedPdf, $basePdf]);
+    
+                // return new Response($mergedPdf, 200, [
+                //     'Content-Type' => 'application/pdf',
+                // ]);
 
-                return new Response($conversion, 200, [
+
+                return new Response($convertedPdf, 200, [
                     'Content-Type' => 'application/pdf',
                 ]);
             }
-
+    
             $this->addFlash('error', 'URL invalide.');
         }
-
+    
         return $this->render('pdf_form/index.html.twig');
     }
 }
