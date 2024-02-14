@@ -10,7 +10,21 @@
         {% block javascripts %}
         {% endblock %}
     </head>
+
+    <style>
+    .alert-info {
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+        color: #0c5460;
+        text-align: center;
+    }
+    </style>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% for flash_message in app.flashes('info') %}
+         <div class="alert alert-info">{{ flash_message }}</div>
+        {% endfor %}
+
+        {% endblock %}
     </body>
 </html>
