@@ -8,19 +8,9 @@
 
 {% block body %}
 
-{% for flash_message in app.flashes('info') %}
-    <div class="alert alert-info">{{ flash_message }}</div>
-{% endfor %}
 
 <style>
 
-
-    .alert-info {
-        background-color: #d1ecf1;
-        border-color: #bee5eb;
-        color: #0c5460;
-        text-align: center;
-    }
     .header-right {
         text-align: right;
         padding: 10px;
@@ -46,22 +36,23 @@
     }
 </style>
 
-<div class="header-right">
-    <a href="{{ path('app_login') }}">Login</a> / <a href="{{ path('app_register') }}">Register</a>
-</div>
-
 <h1 class="welcome-title">Bienvenue</h1>
 
-<div class="cards-container">
-    <div class="card">
-        <h2>Free</h2>
-        <p>Dans cette abonnement, vous pourrez tester notre offre, la création de pdf via des urls.</p>
-        <p>Ici la limite sera de 1 pdf par jour.</p>
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    <p>Bonjour {{ app.user.firstname }}, vous êtes actuellement connecté sur notre solution de génération de PDF à partir d'URL.</p>
+    <p>Vous avez l'abonnement : {{ user.getSubscriptionId().getTitle() }}, vous avez le droit à {{ user.getSubscriptionId().getLimitsPdf() }} PDF par jour.</p>
+    <a href="{{ path('app_pdf_form') }}">Générer un pdf</a> 
+{% else %}
+
+    <div class="cards-container">
+        {% for sub in subs %}
+            <div class="card">
+                <h2>{{ sub.title }}</h2>
+                <p>{{ sub.description }}</p>
+                <p>Limite de {{ sub.limitsPdf }} PDFs par jour.</p>
+                <p>Prix : {{ sub.price == 0 ? 'Gratuit' : (sub.price ~ '€') }}</p>
+            </div>
+        {% endfor %}
     </div>
-    <div class="card">
-        <h2>Premium</h2>
-        <p>Ici, ......</p>
-        <p>La limite sera de 10 pdf par jour.</p>
-    </div>
-</div>
+{% endif %}
 {% endblock %}

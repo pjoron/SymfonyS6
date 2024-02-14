@@ -47,6 +47,10 @@ class RegistrationController extends AbstractController
             $user->setCreatedAt(new \DateTimeImmutable());
             $user->setUpdateAt(new \DateTime());
             $user->setRoles(['ROLE_USER']);
+
+            //--- load default subscription
+            $sub = $entityManager->getRepository('App:Subs')->findOneBy(['name' => 'Free']);
+            $user->setSubscription($sub);
             
 
             $entityManager->persist($user);
