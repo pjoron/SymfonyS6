@@ -55,7 +55,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
 
 
-    #[ORM\OneToMany(targetEntity: Pdf::class, mappedBy: 'user_id')]
+    #[ORM\OneToMany(targetEntity: Pdf::class, mappedBy: 'user')]
     private Collection $pdfs;
 
     #[ORM\Column(type: 'boolean')]

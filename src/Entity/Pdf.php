@@ -19,6 +19,9 @@ class Pdf
         #[ORM\ManyToOne(inversedBy: 'pdfs')]
         private ?User $user = null;
 
+        #[ORM\Column(length: 255)]
+        private ?string $title = null;
+
         public function getId(): ?int
         {
             return $this->id;
@@ -44,6 +47,18 @@ class Pdf
         public function setUserId(?User $user): static
         {
             $this->user = $user;
+
+            return $this;
+        }
+
+        public function getTitle(): ?string
+        {
+            return $this->title;
+        }
+
+        public function setTitle(string $title): static
+        {
+            $this->title = $title;
 
             return $this;
         }
