@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -10,12 +11,24 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     #[Route(path: '/login', name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils, Request $request): Response
     {
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
+        // Vérifie si l'utilisateur est déjà connecté
+        if ($this->getUser()) {
+            $this->addFlash('info', 'Vous êtes déjà connecté.');
 
-        // last username entered by the user
+            // Utilise l'URL du referer pour la redirection
+            $referer = $request->headers->get('referer');
+            if ($referer) {
+                return $this->redirect($referer);
+            }
+
+            return $this->redirectToRoute('/');
+        }
+
+        // Récupère l'erreur de connexion s'il y en a une
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // Dernier nom d'utilisateur saisi par l'utilisateur
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('security/login.html.twig', [
@@ -27,6 +40,7 @@ class SecurityController extends AbstractController
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void
     {
+        // Cette méthode peut rester vide, elle sera interceptée par la clé de déconnexion de votre pare-feu
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }
