@@ -15,6 +15,16 @@
             <label for="lastname" class="form-label">Nom</label>
             <input type="text" class="form-control" id="lastname" name="lastname" value="{{ user.lastname }}">
         </div>
+        <div class="mb-3">
+            <label for="subscriptionId" class="form-label">Abonnement</label>
+            <select class="form-control" id="subscriptionId" name="subscriptionId">
+                {% for subscription in subscriptions %}
+                    <option value="{{ subscription.id }}" {% if user.subscriptionId == subscription %}selected{% endif %}>
+                        {{ subscription.title }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
     </form>
 </div>

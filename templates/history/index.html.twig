@@ -1,7 +1,3 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Historique des PDF{% endblock %}
-
 {% block body %}
     <h1>Historique des PDF</h1>
 
@@ -10,6 +6,7 @@
             <tr>
                 <th scope="col">Titre</th>
                 <th scope="col">Date de création</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +14,9 @@
                 <tr>
                     <td>{{ pdf.title }}</td>
                     <td>{{ pdf.createdAt|date('d/m/Y H:i:s') }}</td>
+                    <td>
+                        <a href="{{ path('app_pdf_view', {'id': pdf.id}) }}" class="btn btn-primary">Visualiser</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Subs;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\Security;
+
 
 class ManageProfilController extends AbstractController
 {
@@ -25,6 +27,8 @@ class ManageProfilController extends AbstractController
         if ($request->isMethod('POST')) {
             $firstname = $request->request->get('firstname');
             $lastname = $request->request->get('lastname');
+            $subscriptionId = $request->request->get('subscriptionId'); // Récupération de l'ID de l'abonnement depuis le formulaire
+
 
             if ($firstname) {
                 $user->setFirstname($firstname);
@@ -34,6 +38,13 @@ class ManageProfilController extends AbstractController
                 $user->setLastname($lastname);
             }
 
+            if ($subscriptionId) {
+                $subscription = $entityManager->getRepository(Subs::class)->find($subscriptionId); 
+                if ($subscription) {
+                    $user->setSubscriptionId($subscription); 
+                }
+            }
+
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -41,8 +52,13 @@ class ManageProfilController extends AbstractController
             return $this->redirectToRoute('manage_profil');
         }
 
+        $subscriptions = $entityManager->getRepository(Subs::class)->findAll();
+
+
         return $this->render('manage_profil/index.html.twig', [
             'user' => $user,
+            'subscriptions' => $subscriptions,   
+
         ]);
     }
 }

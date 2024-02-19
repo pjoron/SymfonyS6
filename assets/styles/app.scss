@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Work Sans';
+    src: 
+        url('./fonts/Work_Sans/WorkSans-VariableFont_wght.ttf') format('truetype'),
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #1F2937;
+    color: #D0D5DB;
+    font-family: 'Work Sans', sans-serif;
+
+
+    .navbar {
+        background-color: #101927;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 7vh;
+        padding: 0 5%;
+
+
+    }
+    
+
+    a {
+        color: #92C5FD;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+
+
+    .cards-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+        flex-wrap: wrap;
+
+
+        .card {
+            padding: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            max-width: 30%;
+            text-align: center;
+        }
+    }
+
+
+
+
+}
