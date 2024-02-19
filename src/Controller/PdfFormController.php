@@ -9,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Service\Gotenberg;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Pdf;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 class PdfFormController extends AbstractController
 {
@@ -21,14 +23,22 @@ class PdfFormController extends AbstractController
 
             if (filter_var($url, FILTER_VALIDATE_URL)) {
                 $convertedPdf = $gotenberg->fetchGitHubInformation(['url' => $url]);
-
+        
+                $pdfFileName = uniqid() . '.pdf'; // Générez un nom de fichier unique
+                $pdfFilePath = 'pdfs/' . $pdfFileName; // Chemin pour enregistrer le PDF
+                $pdfFullPath = $this->getParameter('kernel.project_dir') . '/public/' . $pdfFilePath;
+        
+                file_put_contents($pdfFullPath, $convertedPdf); // Sauvegardez le contenu du PDF
+        
                 $pdf = new Pdf();
                 $pdf->setCreatedAt(new \DateTimeImmutable());
-                $pdf->setTitle($title); 
-                
+                $pdf->setTitle($title);
+                $pdf->setFilePath($pdfFilePath); // Enregistrez le chemin relatif dans l'entité Pdf
+        
                 if ($this->getUser()) {
                     $pdf->setUserId($this->getUser());
                 }
+        
                 $entityManager->persist($pdf);
                 $entityManager->flush();
 
