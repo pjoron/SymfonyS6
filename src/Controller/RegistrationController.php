@@ -15,6 +15,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
+
 class RegistrationController extends AbstractController
 {
     private EmailVerifier $emailVerifier;
@@ -49,8 +50,8 @@ class RegistrationController extends AbstractController
             $user->setRoles(['ROLE_USER']);
 
             //--- load default subscription
-            $sub = $entityManager->getRepository('App:Subs')->findOneBy(['name' => 'Free']);
-            $user->setSubscription($sub);
+            // $sub = $entityManager->getRepository('App:Subs')->findOneBy(['name' => 'Free']);
+            // $user->setSubscription($sub);
             
 
             $entityManager->persist($user);

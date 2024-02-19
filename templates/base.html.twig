@@ -27,19 +27,21 @@
     <body>
 
         {% block nav %}
+            <div class="navbar">
 
-            <a href="{{ path('app_home_page') }}">Home</a>
+                <a href="{{ path('app_home_page') }}">Home</a>
 
-            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-            <a href="{{ path('app_logout') }}">Logout</a> /
+                <div class="log">
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <a href="{{ path('app_logout') }}">Logout</a> /
+                    <a href="{{ path('manage_profil') }}">Edit Profil</a>
 
-            <a href="{{ path('manage_profil') }}">Edit Profil</a>
+                    {% else %}
+                    <a href="{{ path('app_login') }}">Login</a> / <a href="{{ path('app_register') }}">Register</a>
+                    {% endif %} 
+                </div>
 
-            {% else %}
-            <a href="{{ path('app_login') }}">Login</a> / <a href="{{ path('app_register') }}">Register</a>
-            {% endif %} 
-
-
+            </div>
         {% endblock %}
 
 

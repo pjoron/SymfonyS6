@@ -17,7 +17,7 @@ class PdfFormController extends AbstractController
     {
         if ($request->isMethod('POST')) {
             $url = $request->request->get('url');
-            $title = $request->request->get('title'); // Récupérer le titre depuis le formulaire
+            $title = $request->request->get('title');
 
             if (filter_var($url, FILTER_VALIDATE_URL)) {
                 $convertedPdf = $gotenberg->fetchGitHubInformation(['url' => $url]);

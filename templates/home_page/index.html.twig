@@ -19,7 +19,7 @@
         text-align: center;
         margin-top: 50px;
     }
-    .cards-container {
+    {# .cards-container {
         display: flex;
         justify-content: space-around;
         margin-top: 50px;
@@ -33,10 +33,10 @@
     }
     .card:hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
+    } #}
 </style>
 
-<h1 class="welcome-title">Bienvenue</h1>
+<h1 class="welcome-title">Bienvenue !</h1>
 
 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
     <p>Bonjour {{ app.user.firstname }}, vous êtes actuellement connecté sur notre solution de génération de PDF à partir d'URL.</p>
