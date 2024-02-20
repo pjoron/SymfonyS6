@@ -25,15 +25,15 @@ class PdfFormController extends AbstractController
                 $convertedPdf = $gotenberg->fetchGitHubInformation(['url' => $url]);
         
                 $pdfFileName = uniqid() . '.pdf'; // Générez un nom de fichier unique
-                $pdfFilePath = 'pdfs/' . $pdfFileName; // Chemin pour enregistrer le PDF
+                $pdfFilePath = 'pdfs/' . $pdfFileName; 
                 $pdfFullPath = $this->getParameter('kernel.project_dir') . '/public/' . $pdfFilePath;
         
-                file_put_contents($pdfFullPath, $convertedPdf); // Sauvegardez le contenu du PDF
+                file_put_contents($pdfFullPath, $convertedPdf); 
         
                 $pdf = new Pdf();
                 $pdf->setCreatedAt(new \DateTimeImmutable());
                 $pdf->setTitle($title);
-                $pdf->setFilePath($pdfFilePath); // Enregistrez le chemin relatif dans l'entité Pdf
+                $pdf->setFilePath($pdfFilePath); 
         
                 if ($this->getUser()) {
                     $pdf->setUserId($this->getUser());
