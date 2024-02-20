@@ -27,7 +27,7 @@ class ManageProfilController extends AbstractController
         if ($request->isMethod('POST')) {
             $firstname = $request->request->get('firstname');
             $lastname = $request->request->get('lastname');
-            $subscriptionId = $request->request->get('subscriptionId'); // Récupération de l'ID de l'abonnement depuis le formulaire
+            $subscriptionId = $request->request->get('subscriptionId'); 
 
 
             if ($firstname) {

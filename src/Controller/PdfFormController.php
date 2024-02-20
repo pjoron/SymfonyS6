@@ -11,13 +11,35 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Pdf;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use App\Repository\PdfRepository;
+
 
 class PdfFormController extends AbstractController
 {
     #[Route('/pdf-form', name: 'app_pdf_form')]
-    public function new(Request $request, Gotenberg $gotenberg, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, Gotenberg $gotenberg, EntityManagerInterface $entityManager, PdfRepository $pdfRepository): Response
     {
+        
         if ($request->isMethod('POST')) {
+
+            $user = $this->getUser();
+            if ($user) {
+            $subscription = $user->getSubscriptionId();
+
+
+            $startOfDay = new \DateTime("today", new \DateTimeZone('UTC'));
+            $endOfDay = new \DateTime("tomorrow", new \DateTimeZone('UTC'));
+            $endOfDay->modify('-1 second'); 
+
+                $pdfCountToday = $pdfRepository->findPdfGeneratedByUserOnDate($user->getId(), $startOfDay, $endOfDay);
+
+                if ($subscription && $pdfCountToday >= $subscription->getLimitsPdf()) {
+                    $this->addFlash('error', 'Vous avez atteint votre limite quotidienne de PDFs pour votre abonnement.');
+                    return $this->redirectToRoute('app_pdf_form');
+                }
+
+        }
+
             $url = $request->request->get('url');
             $title = $request->request->get('title');
 
