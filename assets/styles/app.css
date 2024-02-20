@@ -23,11 +23,12 @@ body .navbar {
   padding: 0 5%;
 }
 body a {
-  color: #92C5FD;
+  color: #D1D4DA;
   text-decoration: none;
 }
 body a:hover {
   text-decoration: underline;
+  color: #a2c3f4;
 }
 body .cards-container {
   display: flex;
@@ -41,4 +42,32 @@ body .cards-container .card {
   transition: 0.3s;
   max-width: 30%;
   text-align: center;
+}
+body .container .welcome-message {
+  margin-top: 50px;
+}
+body .container .welcome-message p {
+  margin: 0 0 10px;
+  color: #D0D5DB;
+  text-align: center;
+}
+body .container .actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 10px;
+  margin-top: 50px;
+  justify-content: center;
+}
+body .container .actions .btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #1D4FD8;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+body .container .actions .btn:hover {
+  background-color: #0056b3;
 }/*# sourceMappingURL=app.css.map */
