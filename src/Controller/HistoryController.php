@@ -16,8 +16,20 @@ class HistoryController extends AbstractController
     #[Route('/pdf-history', name: 'app_pdf_history')]
     public function index(): Response
     {
+
+        
         $user = $this->getUser();
+
+                // Vérification si l'utilisateur est connecté
+                if (!$user) {
+                    $this->addFlash('error', 'Vous devez être connecté pour accéder à l\'historique des PDF.');
+                    return $this->redirectToRoute('app_login'); // Redirection vers la page de connexion
+                }
+
+                
         $pdfs = $user->getPdfs();
+
+
 
         return $this->render('history/index.html.twig', [
             'pdfs' => $pdfs,
@@ -40,7 +52,7 @@ class HistoryController extends AbstractController
             throw $this->createNotFoundException('Le fichier PDF demandé n\'existe pas sur le serveur.');
         }
     
-        // Retourne une réponse qui télécharge le fichier PDF
+        // Retourne une réponse qui visualise
         return $this->file($pdfFilePath, null, ResponseHeaderBag::DISPOSITION_INLINE);
     }
 }

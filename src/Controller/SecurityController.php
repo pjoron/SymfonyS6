@@ -23,7 +23,7 @@ class SecurityController extends AbstractController
                 return $this->redirect($referer);
             }
 
-            return $this->redirectToRoute('/');
+            return $this->redirectToRoute('app_home_page');
         }
 
         // Récupère l'erreur de connexion s'il y en a une
