@@ -3,6 +3,8 @@
 {% block title %}Convertir URL en PDF{% endblock %}
 
 {% block body %}
+
+<div class="container_pdf">
     <h1>Convertir URL en PDF</h1>
 
     {% for message in app.flashes('error') %}
@@ -22,4 +24,6 @@
 
         <button type="submit" class="btn btn-primary">Convertir</button>
     </form>
+
+</div>
 {% endblock %}

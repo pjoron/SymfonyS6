@@ -3,11 +3,11 @@
 
 
 
-
+<div class="container_history">
     {% if pdfs|length > 0 %}
 
         <h1>Historique des PDF</h1>
-        
+            
         <table class="table">
             <thead>
                 <tr>
@@ -31,4 +31,6 @@
     {% else %}
         <div class="alert alert-warning">Vous n'avez pas de PDFs enregistrés.</div>
     {% endif %}
+
+</div>
 {% endblock %}
