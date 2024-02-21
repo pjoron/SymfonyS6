@@ -19,21 +19,7 @@
         text-align: center;
         margin-top: 50px;
     }
-    {# .cards-container {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 50px;
-    }
-    .card {
-        padding: 20px;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        transition: 0.3s;
-        width: 40%;
-        text-align: center;
-    }
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    } #}
+
 </style>
 
 <h1 class="welcome-title">Bienvenue !</h1>
@@ -43,8 +29,41 @@
 
 <div class="container">
     <div class="welcome-message">
+
+
         <p>Bonjour {{ app.user.firstname }}, vous êtes actuellement connecté sur notre solution de génération de PDF à partir d'URL.</p>
         <p>Vous avez l'abonnement : {{ user.getSubscriptionId().getTitle() }}, vous avez le droit à {{ user.getSubscriptionId().getLimitsPdf() }} PDF par jour.</p>
+        <p>Vous avez généré {{ pdfCountToday }} PDF(s) aujourd'hui.</p>
+    <p>Réinitialisation du nombre de PDF générer dans : <span id="countdown"></span></p>
+
+    <script>
+        function startCountdown(duration, display) {
+            var timer = duration, hours, minutes, seconds;
+            
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + "h" + minutes + "min" + seconds + "s";
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var timeLeft = {{ timeLeft }};
+            var display = document.querySelector('#countdown');
+            startCountdown(timeLeft, display);
+        };
+    </script>
+
     </div>
 
     <div class="actions">

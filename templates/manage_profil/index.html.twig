@@ -3,7 +3,7 @@
 {% block title %}Mise à jour du profil{% endblock %}
 
 {% block body %}
-<div class="container">
+<div class="container_profil">
     <h1>Mise à jour du profil</h1>
 
     <form method="post">
@@ -15,6 +15,9 @@
             <label for="lastname" class="form-label">Nom</label>
             <input type="text" class="form-control" id="lastname" name="lastname" value="{{ user.lastname }}">
         </div>
+
+
+
         <div class="mb-3">
             <label for="subscriptionId" class="form-label">Abonnement</label>
             <select class="form-control" id="subscriptionId" name="subscriptionId">
@@ -25,6 +28,8 @@
                 {% endfor %}
             </select>
         </div>
+
+        
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
     </form>
 </div>

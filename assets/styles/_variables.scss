@@ -1,0 +1,19 @@
+// Variables
+$color-background: #1F2937;
+$color-text: #D0D5DB;
+$color-navbar: #101927;
+$color-link: #D1D4DA;
+$color-link-hover: #a2c3f4;
+$color-btn: #1D4FD8;
+$color-btn-hover: #0056b3;
+$card-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+$transition-speed: 0.3s;
+
+
+@mixin box-shadow($shadow) {
+    box-shadow: $shadow;
+  }
+  
+  @mixin transition($property, $speed) {
+    transition: $property $speed;
+  }
