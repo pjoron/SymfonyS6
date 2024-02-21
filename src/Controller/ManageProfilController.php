@@ -50,6 +50,7 @@ class ManageProfilController extends AbstractController
 
             $this->addFlash('success', 'Votre profil a été mis à jour.');
             return $this->redirectToRoute('manage_profil');
+
         }
 
         $subscriptions = $entityManager->getRepository(Subs::class)->findAll();

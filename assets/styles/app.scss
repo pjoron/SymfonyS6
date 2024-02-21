@@ -7,15 +7,6 @@
 @import 'pdf';
 @import 'profil';
 
-// Mixins
-@mixin box-shadow($shadow) {
-  box-shadow: $shadow;
-}
-
-@mixin transition($property, $speed) {
-  transition: $property $speed;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +18,13 @@ body {
   color: $color-text;
   font-family: 'Work Sans', sans-serif;
   line-height: 1.6;
+
+  .alert {
+    width: 100%;
+    background-color: lighten($color-background, 10%);
+    text-align: center;
+    margin-top: 2.5%;
+    }
 
   .navbar {
       @include transition(all, $transition-speed);
