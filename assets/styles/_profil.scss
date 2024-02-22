@@ -1,0 +1,54 @@
+.container_profil {
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: darken($color-background, 5%); 
+    border-radius: 8px;
+    box-shadow: $card-shadow;
+    margin-top: 30px;
+  
+    h1 {
+      color: $color-link;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      .form-label {
+        color: lighten($color-text, 20%);
+      }
+  
+      .form-control {
+        padding: 0.5rem;
+        border-radius: 4px;
+        border: 1px solid lighten($color-navbar, 10%);
+        background-color: lighten($color-background, 5%);
+        color: $color-text;
+  
+        &:focus {
+          outline: none;
+          border-color: $color-btn;
+          @include box-shadow(0 0 0 0.2rem rgba($color-btn, .25));
+        }
+      }
+  
+      .btn {
+        @include transition(all, $transition-speed);
+        padding: 0.5rem 1rem;
+        background-color: $color-btn;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: $color-btn-hover;
+        }
+      }
+    }
+  }

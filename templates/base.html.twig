@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+
+    <body>
+
+        {% block nav %}
+            <div class="navbar">
+
+                <a href="{{ path('app_home_page') }}">Home</a>
+
+                <div class="log">
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <a href="{{ path('app_logout') }}">Logout</a> /
+                    <a href="{{ path('manage_profil') }}">Edit Profil</a>
+
+                    {% else %}
+                    <a href="{{ path('app_login') }}">Login</a> / <a href="{{ path('app_register') }}">Register</a>
+                    {% endif %} 
+                </div>
+
+            </div>
+        {% endblock %}
+
+
+                {% for flash_message in app.flashes('info') %}
+
+                     <div class="alert alert-info">{{ flash_message }}</div>
+
+                 {% endfor %}
+                {% for flash_message in app.flashes('success') %}
+
+                     <div class="alert alert-info">{{ flash_message }}</div>
+
+                 {% endfor %}
+
+        {% block body %}
+
+
+
+        {% endblock %}
+    </body>
+</html>
