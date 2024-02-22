@@ -15,12 +15,12 @@ jobs:
     - name: Setup SSH
       uses: webfactory/ssh-agent@v0.5.3
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY2 }}
 
     - name: Deploy to VPS
       run: |
         ssh -o StrictHostKeyChecking=no -p 2200 pauljoron@185.216.26.211 << 'EOF'
-          cd /path/to/your/project
+          cd /var/www/gotenberg
           git pull origin main
-          sudo npm run build
-        EO
+          npm run build
+        EOF
