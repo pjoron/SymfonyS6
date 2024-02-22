@@ -19,8 +19,8 @@ jobs:
 
     - name: Deploy to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no pauljoron@185.216.26.211 << 'EOF'
-          cd /var/www/gotenberg
+        ssh -o StrictHostKeyChecking=no -p 2200 pauljoron@185.216.26.211 << 'EOF'
+          cd /path/to/your/project
           git pull origin main
-          npm run build
-        EOF
+          sudo npm run build
+        EO
