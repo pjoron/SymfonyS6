@@ -1,16 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pdf Home
-
-{% endblock %}
-
-
+{% block title %}Pdf Home{% endblock %}
 
 {% block body %}
 
-
 <style>
-
     .header-right {
         text-align: right;
         padding: 10px;
@@ -19,27 +13,27 @@
         text-align: center;
         margin-top: 50px;
     }
-
 </style>
 
 <h1 class="welcome-title">Bienvenue !</h1>
 
 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
 
-
 <div class="container">
     <div class="welcome-message">
-
-
-        <p>Bonjour {{ app.user.firstname }}, vous êtes actuellement connecté sur notre solution de génération de PDF à partir d'URL.</p>
+        {% if app.user.firstname %}
+            <p>Bonjour {{ app.user.firstname }}, vous êtes actuellement connecté sur notre solution de génération de PDF à partir d'URL.</p>
+        {% else %}
+            <p>Bonjour, vous êtes actuellement connecté sur notre solution de génération de PDF à partir d'URL.</p>
+        {% endif %}
         <p>Vous avez l'abonnement : {{ user.getSubscriptionId().getTitle() }}, vous avez le droit à {{ user.getSubscriptionId().getLimitsPdf() }} PDF par jour.</p>
         <p>Vous avez généré {{ pdfCountToday }} PDF(s) aujourd'hui.</p>
-    <p>Réinitialisation du nombre de PDF générer dans : <span id="countdown"></span></p>
+        <p>Réinitialisation du nombre de PDF générer dans : <span id="countdown"></span></p>
 
-    <script>
+<script>
         function startCountdown(duration, display) {
             var timer = duration, hours, minutes, seconds;
-            
+
             setInterval(function () {
                 hours = parseInt(timer / 3600, 10);
                 minutes = parseInt((timer % 3600) / 60, 10);
@@ -63,7 +57,6 @@
             startCountdown(timeLeft, display);
         };
     </script>
-
     </div>
 
     <div class="actions">
@@ -72,18 +65,18 @@
     </div>
 </div>
 
-    
 {% else %}
 
-    <div class="cards-container">
-        {% for sub in subs %}
-            <div class="card">
-                <h2>{{ sub.title }}</h2>
-                <p>{{ sub.description }}</p>
-                <p>Limite de {{ sub.limitsPdf }} PDFs par jour.</p>
-                <p>Prix : {{ sub.price == 0 ? 'Gratuit' : (sub.price ~ '€') }}</p>
-            </div>
-        {% endfor %}
-    </div>
+<div class="cards-container">
+    {% for sub in subs %}
+        <div class="card">
+            <h2>{{ sub.title }}</h2>
+            <p>{{ sub.description }}</p>
+            <p>Limite de {{ sub.limitsPdf }} PDFs par jour.</p>
+            <p>Prix : {{ sub.price == 0 ? 'Gratuit' : (sub.price ~ '€') }}</p>
+        </div>
+    {% endfor %}
+</div>
+
 {% endif %}
 {% endblock %}

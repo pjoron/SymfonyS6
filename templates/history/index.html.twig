@@ -23,6 +23,8 @@
                         <td>{{ pdf.createdAt|date('d/m/Y H:i:s') }}</td>
                         <td>
                             <a href="{{ path('app_pdf_view', {'id': pdf.id}) }}" class="btn btn-primary">Visualiser</a>
+                            <a href="{{ path('app_pdf_delete', {'id': pdf.id}) }}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce PDF ?');">Supprimer</a>
+
                         </td>
                     </tr>
                 {% endfor %}

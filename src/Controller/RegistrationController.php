@@ -14,6 +14,11 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use App\Entity\Subs;
+
+//repository sub 
+use App\Repository\SubscriptionRepository;
+
 
 
 class RegistrationController extends AbstractController
@@ -31,7 +36,7 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
+    
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
             $user->setPassword(
@@ -40,40 +45,41 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
+    
             $dateEnd = new \DateTime(); // Current date and time
             $dateEnd->modify('+1 month'); // Default subscription end date, 1 month from now
             $user->setDateEndSubs($dateEnd);
-
+    
             $user->setCreatedAt(new \DateTimeImmutable());
             $user->setUpdateAt(new \DateTime());
             $user->setRoles(['ROLE_USER']);
-
-            //--- load default subscription
-            // $sub = $entityManager->getRepository('App:Subs')->findOneBy(['name' => 'Free']);
-            // $user->setSubscription($sub);
-            
-
+    
+            // Récupérer l'abonnement gratuit (avec l'ID 1) et l'assigner à l'utilisateur
+            $freeSubscription = $entityManager->getRepository(Subs::class)->find(1);
+            if ($freeSubscription) {
+                $user->setSubscriptionId($freeSubscription);
+            }
+    
             $entityManager->persist($user);
             $entityManager->flush();
-
+    
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('joronpaul@gmail.com', 'SymfonyS6Mail'))
+                    ->from(new Address('your_email@example.com', 'Your Name or Your App Name'))
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
-            // do anything else you need here, like send an email
-
+    
             return $this->redirectToRoute('app_login');
         }
-
+    
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
+
 
     #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request): Response
