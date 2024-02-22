@@ -55,6 +55,27 @@ class HistoryController extends AbstractController
         // Retourne une réponse qui visualise
         return $this->file($pdfFilePath, null, ResponseHeaderBag::DISPOSITION_INLINE);
     }
+
+    #[Route('/pdf-delete/{id}', name: 'app_pdf_delete')]
+public function deletePdf(int $id, EntityManagerInterface $entityManager): Response
+{
+    $pdfRepository = $entityManager->getRepository(Pdf::class);
+    $pdf = $pdfRepository->find($id);
+
+    // Vérifiez si le PDF existe et si l'utilisateur est autorisé à le supprimer
+    if (!$pdf || $pdf->getUserId() !== $this->getUser()) {
+        $this->addFlash('error', 'Vous n\'avez pas les droits pour supprimer ce PDF.');
+        return $this->redirectToRoute('app_pdf_history');
+    }
+
+    // Suppression du fichier PDF
+    $entityManager->remove($pdf);
+    $entityManager->flush();
+
+    $this->addFlash('success', 'Le PDF a été supprimé avec succès.');
+
+    return $this->redirectToRoute('app_pdf_history');
+}
 }
 
 
