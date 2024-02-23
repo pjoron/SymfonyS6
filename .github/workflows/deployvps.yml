@@ -1,5 +1,4 @@
 name: Deploy to VPS
-
 on:
   push:
     branches:
@@ -31,4 +30,4 @@ jobs:
           fi
           composer install
           npm install
-          npm run build
+          sudo npm run build
