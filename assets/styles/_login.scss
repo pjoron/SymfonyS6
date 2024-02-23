@@ -24,6 +24,7 @@
         min-width: 120px; 
         padding-right: 20px; 
         text-align: right;
+
       }
 
   
@@ -34,6 +35,7 @@
         background-color: lighten($color-background, 5%);
         color: $color-text;
         flex-grow: 1;
+        max-width: 300px;
   
         &:focus {
           outline: none;

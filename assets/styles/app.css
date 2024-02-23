@@ -3,7 +3,11 @@
   src: url("./fonts/Work_Sans/WorkSans-VariableFont_wght.ttf") format("truetype");
 }
 .container_history {
+<<<<<<< Updated upstream
   background: #ff1a1a;
+=======
+  background: #283547;
+>>>>>>> Stashed changes
   border-radius: 8px;
   padding: 2rem;
   margin: 4rem;
@@ -19,11 +23,21 @@
   margin-bottom: 1rem;
   border-collapse: collapse;
 }
+.container_history .table thead {
+  width: 33.33%;
+}
 .container_history .table thead th {
+  width: 33.33%;
   background-color: #101927;
   color: #D0D5DB;
   padding: 0.75rem;
   border-bottom: 2px solid #090d15;
+}
+.container_history .table tbody {
+  width: 33.33%;
+}
+.container_history .table tbody tr {
+  width: 33.33%;
 }
 .container_history .table tbody tr:nth-child(odd) {
   background-color: #172539;
@@ -32,6 +46,7 @@
   background-color: #1f304b;
 }
 .container_history .table tbody tr td {
+  text-align: center;
   padding: 0.75rem;
   border-top: 1px solid #010203;
 }
@@ -55,7 +70,11 @@
   color: #D0D5DB;
 }
 .container_history .alert {
+<<<<<<< Updated upstream
   background-color: #ff3333;
+=======
+  background-color: #314158;
+>>>>>>> Stashed changes
   color: #a2c3f4;
   padding: 1rem;
   border-radius: 4px;
@@ -67,7 +86,11 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+<<<<<<< Updated upstream
   background-color: #e60000;
+=======
+  background-color: #161d27;
+>>>>>>> Stashed changes
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 30px;
@@ -93,7 +116,11 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #1f304b;
+<<<<<<< Updated upstream
   background-color: #ff1a1a;
+=======
+  background-color: #283547;
+>>>>>>> Stashed changes
   color: #D0D5DB;
   flex-grow: 1;
 }
@@ -119,7 +146,11 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+<<<<<<< Updated upstream
   background-color: #e60000;
+=======
+  background-color: #161d27;
+>>>>>>> Stashed changes
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 30px;
@@ -141,7 +172,11 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #1f304b;
+<<<<<<< Updated upstream
   background-color: #ff1a1a;
+=======
+  background-color: #283547;
+>>>>>>> Stashed changes
   color: #D0D5DB;
 }
 .container_profil form .form-control:focus {
@@ -162,6 +197,113 @@
   background-color: #0056b3;
 }
 
+<<<<<<< Updated upstream
+=======
+.container_register {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #161d27;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+.container_register h1 {
+  color: #D1D4DA;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.container_register form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container_register form label {
+  color: white;
+  min-width: 60px;
+  padding-right: 20px;
+  display: block;
+  float: left;
+}
+.container_register form .form-control {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #1f304b;
+  background-color: #283547;
+  color: #D0D5DB;
+  flex-grow: 1;
+}
+.container_register form .form-control:focus {
+  outline: none;
+  border-color: #1D4FD8;
+  box-shadow: 0 0 0 0.2rem rgba(29, 79, 216, 0.25);
+}
+.container_register form .btn {
+  transition: all 0.3s;
+  padding: 0.5rem 1rem;
+  background-color: #1D4FD8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.container_register form .btn:hover {
+  background-color: #0056b3;
+}
+
+.container_login {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #161d27;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+.container_login h1 {
+  color: #D1D4DA;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.container_login form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container_login form label {
+  color: white;
+  min-width: 120px;
+  padding-right: 20px;
+  text-align: right;
+}
+.container_login form .form-control {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #1f304b;
+  background-color: #283547;
+  color: #D0D5DB;
+  flex-grow: 1;
+  max-width: 300px;
+}
+.container_login form .form-control:focus {
+  outline: none;
+  border-color: #1D4FD8;
+  box-shadow: 0 0 0 0.2rem rgba(29, 79, 216, 0.25);
+}
+.container_login form .btn {
+  transition: all 0.3s;
+  padding: 0.5rem 1rem;
+  background-color: #1D4FD8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.container_login form .btn:hover {
+  background-color: #0056b3;
+}
+
+>>>>>>> Stashed changes
 * {
   margin: 0;
   padding: 0;
@@ -169,14 +311,22 @@
 }
 
 body {
+<<<<<<< Updated upstream
   background-color: red;
+=======
+  background-color: #1F2937;
+>>>>>>> Stashed changes
   color: #D0D5DB;
   font-family: "Work Sans", sans-serif;
   line-height: 1.6;
 }
 body .alert {
   width: 100%;
+<<<<<<< Updated upstream
   background-color: #ff3333;
+=======
+  background-color: #314158;
+>>>>>>> Stashed changes
   text-align: center;
   margin-top: 2.5%;
 }
@@ -221,7 +371,11 @@ body .container {
   padding: 0 15px;
 }
 body .welcome-message {
+<<<<<<< Updated upstream
   background-color: #e60000;
+=======
+  background-color: #161d27;
+>>>>>>> Stashed changes
   border-radius: 8px;
   padding: 40px;
   margin-top: 50px;

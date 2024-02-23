@@ -17,7 +17,9 @@
       border-collapse: collapse;
   
       thead {
+        width: 33.33%;
         th {
+          width: 33.33%;
           background-color: $color-navbar;
           color: $color-text;
           padding: 0.75rem;
@@ -26,7 +28,9 @@
       }
   
       tbody {
+        width: 33.33%;
         tr {
+          width: 33.33%;
           &:nth-child(odd) {
             background-color: lighten($color-navbar, 5%);
           }
@@ -36,6 +40,7 @@
           }
   
           td {
+            text-align: center;
             padding: 0.75rem;
             border-top: 1px solid darken($color-navbar, 10%);
   
