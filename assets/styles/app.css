@@ -162,6 +162,109 @@
   background-color: #0056b3;
 }
 
+.container_register {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #161d27;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+.container_register h1 {
+  color: #D1D4DA;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.container_register form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container_register form label {
+  color: white;
+  min-width: 60px;
+  padding-right: 20px;
+  display: block;
+  float: left;
+}
+.container_register form .form-control {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #1f304b;
+  background-color: #283547;
+  color: #D0D5DB;
+  flex-grow: 1;
+}
+.container_register form .form-control:focus {
+  outline: none;
+  border-color: #1D4FD8;
+  box-shadow: 0 0 0 0.2rem rgba(29, 79, 216, 0.25);
+}
+.container_register form .btn {
+  transition: all 0.3s;
+  padding: 0.5rem 1rem;
+  background-color: #1D4FD8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.container_register form .btn:hover {
+  background-color: #0056b3;
+}
+
+.container_login {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #161d27;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+.container_login h1 {
+  color: #D1D4DA;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.container_login form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container_login form label {
+  color: white;
+  min-width: 120px;
+  padding-right: 20px;
+  text-align: right;
+}
+.container_login form .form-control {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #1f304b;
+  background-color: #283547;
+  color: #D0D5DB;
+  flex-grow: 1;
+}
+.container_login form .form-control:focus {
+  outline: none;
+  border-color: #1D4FD8;
+  box-shadow: 0 0 0 0.2rem rgba(29, 79, 216, 0.25);
+}
+.container_login form .btn {
+  transition: all 0.3s;
+  padding: 0.5rem 1rem;
+  background-color: #1D4FD8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.container_login form .btn:hover {
+  background-color: #0056b3;
+}
+
 * {
   margin: 0;
   padding: 0;
