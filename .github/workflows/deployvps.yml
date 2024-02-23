@@ -26,6 +26,6 @@ jobs:
             cd testgithub
             git pull origin main
           else
-            git clone <URL de votre dépôt> testgithub
+            git clone git@github.com:pjoron/SymfonyS6.git testgithub
             cd testgithub
           fi
