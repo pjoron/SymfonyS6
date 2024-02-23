@@ -23,10 +23,9 @@ jobs:
           cd /var/www
           if [ -d "pdf/.git" ]; then
             cd pdf
-            rm -rf assets
-            git reset --hard
-            git clean -fd
-            git pull origin main
+            sudo git reset --hard
+            sudo git clean -fd
+            sudo git pull origin main
           else
             git clone git@github.com:pjoron/SymfonyS6.git testgithub
             cd testgithub
