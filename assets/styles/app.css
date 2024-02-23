@@ -3,7 +3,7 @@
   src: url("./fonts/Work_Sans/WorkSans-VariableFont_wght.ttf") format("truetype");
 }
 .container_history {
-  background: #283547;
+  background: #009a00;
   border-radius: 8px;
   padding: 2rem;
   margin: 4rem;
@@ -55,7 +55,7 @@
   color: #D0D5DB;
 }
 .container_history .alert {
-  background-color: #314158;
+  background-color: #00b300;
   color: #a2c3f4;
   padding: 1rem;
   border-radius: 4px;
@@ -67,7 +67,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #161d27;
+  background-color: #006700;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 30px;
@@ -93,7 +93,7 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #1f304b;
-  background-color: #283547;
+  background-color: #009a00;
   color: #D0D5DB;
   flex-grow: 1;
 }
@@ -119,7 +119,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #161d27;
+  background-color: #006700;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 30px;
@@ -141,7 +141,7 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #1f304b;
-  background-color: #283547;
+  background-color: #009a00;
   color: #D0D5DB;
 }
 .container_profil form .form-control:focus {
@@ -166,7 +166,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #161d27;
+  background-color: #006700;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 30px;
@@ -192,7 +192,7 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #1f304b;
-  background-color: #283547;
+  background-color: #009a00;
   color: #D0D5DB;
   flex-grow: 1;
 }
@@ -218,7 +218,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #161d27;
+  background-color: #006700;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 30px;
@@ -243,7 +243,7 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #1f304b;
-  background-color: #283547;
+  background-color: #009a00;
   color: #D0D5DB;
   flex-grow: 1;
 }
@@ -272,14 +272,14 @@
 }
 
 body {
-  background-color: #1F2937;
+  background-color: green;
   color: #D0D5DB;
   font-family: "Work Sans", sans-serif;
   line-height: 1.6;
 }
 body .alert {
   width: 100%;
-  background-color: #314158;
+  background-color: #00b300;
   text-align: center;
   margin-top: 2.5%;
 }
@@ -324,7 +324,7 @@ body .container {
   padding: 0 15px;
 }
 body .welcome-message {
-  background-color: #161d27;
+  background-color: #006700;
   border-radius: 8px;
   padding: 40px;
   margin-top: 50px;
