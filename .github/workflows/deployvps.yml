@@ -23,6 +23,7 @@ jobs:
           cd /var/www
           if [ -d "pdf/.git" ]; then
             cd pdf
+            rm -rf assets
             git reset --hard
             git clean -fd
             git pull origin main
