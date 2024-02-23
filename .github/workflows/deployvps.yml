@@ -28,6 +28,9 @@ jobs:
           cd /var/www
           if [ -d "testgithub/.git" ]; then
             cd testgithub
+            git checkout -- .env
+            git clean -fd
+            git reset --hard
             git pull origin main
             sudo npm run build
             composer install
