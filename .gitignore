@@ -11,6 +11,12 @@
 /var/cache/*
 !/var/cache/.gitkeep
 ###< symfony/framework-bundle ###
+/var/cache/*
+/var/log/*
+!/var/cache/.gitkeep
+!/var/log/.gitkeep
+.env.local
+.env.*.local
 
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
