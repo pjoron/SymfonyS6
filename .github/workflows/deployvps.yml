@@ -21,5 +21,11 @@ jobs:
         port: 2200  
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
-          cd /var/www/testgithub
-          git pull origin main
+          cd /var/www
+          if [ -d "testgithub/.git" ]; then
+            cd testgithub
+            git pull origin main
+          else
+            git clone <URL de votre dépôt> testgithub
+            cd testgithub
+          fi
