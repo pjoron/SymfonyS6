@@ -1,5 +1,4 @@
 name: Deploy to VPS
-
 on:
   push:
     branches:
@@ -12,6 +11,11 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      
+    - name: Add SSH key to known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -p 2200 ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
     - name: Deploy to VPS
       uses: appleboy/ssh-action@master
@@ -22,13 +26,21 @@ jobs:
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
           cd /var/www
-          if [ -d "pdf/.git" ]; then
-            cd pdf
+          if [ -d "testgithub/.git" ]; then
+            cd testgithub
+            git checkout -- .env
+            git clean -fd
+            git reset --hard
             git pull origin main
+            sudo npm run build
+            composer install
           else
             git clone git@github.com:pjoron/SymfonyS6.git testgithub
             cd testgithub
           fi
-          composer install
-          npm install
-          npm run build
+          sudo chown -R www-data:www-data /var/www/testgithub/var /var/www/testgithub/public
+          sudo chmod -R 775 /var/www/testgithub/public/pdfs/
+          sudo find /var/www/testgithub/var -type d -exec chmod 755 {} \;
+          sudo find /var/www/testgithub/var -type f -exec chmod 644 {} \;
+          sudo find /var/www/testgithub/public -type d -exec chmod 755 {} \;
+          sudo find /var/www/testgithub/public -type f -exec chmod 644 {} \;

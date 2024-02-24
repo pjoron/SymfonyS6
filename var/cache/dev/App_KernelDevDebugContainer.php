@@ -16,7 +16,12 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerUBffMs9\App_KernelDevDebugContainer([
     'container.build_hash' => 'UBffMs9',
+<<<<<<< HEAD
     'container.build_id' => 'f5f48216',
     'container.build_time' => 1708722022,
+=======
+    'container.build_id' => '8b55b189',
+    'container.build_time' => 1708707001,
+>>>>>>> main
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerUBffMs9');
