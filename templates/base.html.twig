@@ -19,15 +19,15 @@
         {% block nav %}
             <div class="navbar">
 
-                <a href="{{ path('app_home_page') }}">Home</a>
+                <a href="{{ path('app_home_page') }}">Accueil</a>
 
                 <div class="log">
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                    <a href="{{ path('app_logout') }}">Logout</a> /
-                    <a href="{{ path('manage_profil') }}">Edit Profil</a>
+                    <a href="{{ path('app_logout') }}">Se déconnecter</a> /
+                    <a href="{{ path('manage_profil') }}">Editer son profil</a>
 
                     {% else %}
-                    <a href="{{ path('app_login') }}">Login</a> / <a href="{{ path('app_register') }}">Register</a>
+                    <a href="{{ path('app_login') }}">Connexion</a> / <a href="{{ path('app_register') }}">Inscription</a>
                     {% endif %} 
                 </div>
 
