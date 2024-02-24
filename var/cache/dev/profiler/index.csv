@@ -780,3 +780,24 @@ e8d56f,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708721763,3a4aee,404
 c60ee4,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708721767,dc0383,404,request
 dc0383,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708721767,,404,request
 >>>>>>> Stashed changes
+91a17a,127.0.0.1,GET,https://127.0.0.1:8000/home,1708722022,,200,request
+aa5611,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722022,8e3caf,404,request
+8e3caf,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722022,,404,request
+ac1a80,127.0.0.1,GET,https://127.0.0.1:8000/home,1708722041,,200,request
+180371,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722041,737a70,404,request
+737a70,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722041,,404,request
+9f9651,127.0.0.1,GET,https://127.0.0.1:8000/login,1708722043,,200,request
+280dbf,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722043,938af0,404,request
+938af0,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722043,,404,request
+4daae0,127.0.0.1,GET,https://127.0.0.1:8000/login,1708722045,,200,request
+188a44,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722045,4f8888,404,request
+4f8888,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722045,,404,request
+078a56,127.0.0.1,GET,https://127.0.0.1:8000/login,1708722059,,200,request
+99a838,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722059,59c615,404,request
+59c615,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722059,,404,request
+37bc11,127.0.0.1,GET,https://127.0.0.1:8000/login,1708722071,,200,request
+d4750a,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722071,15b75d,404,request
+15b75d,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722071,,404,request
+05ea21,127.0.0.1,GET,https://127.0.0.1:8000/login,1708722072,,200,request
+e79f59,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722072,28a7af,404,request
+28a7af,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708722072,,404,request
