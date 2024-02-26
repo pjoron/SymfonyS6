@@ -834,3 +834,13 @@ a32403,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708780117,88687d,404
 aca621,127.0.0.1,GET,https://127.0.0.1:8000/home,1708780124,,200,request
 332656,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708780124,89919d,404,request
 89919d,127.0.0.1,GET,https://127.0.0.1:8000/styles/app.css,1708780124,,404,request
+ca3b32,127.0.0.1,GET,https://127.0.0.1:8001/,1708961594,,200,request
+ee061f,127.0.0.1,GET,https://127.0.0.1:8001/styles/app.css,1708961594,c49904,404,request
+c49904,127.0.0.1,GET,https://127.0.0.1:8001/styles/app.css,1708961594,,404,request
+ed57f3,127.0.0.1,GET,https://127.0.0.1:8001/login,1708961617,,200,request
+ad9dc3,127.0.0.1,GET,https://127.0.0.1:8001/styles/app.css,1708961617,f0c1ef,404,request
+f0c1ef,127.0.0.1,GET,https://127.0.0.1:8001/styles/app.css,1708961617,,404,request
+909c90,127.0.0.1,POST,https://127.0.0.1:8001/login,1708961621,,302,request
+d7d406,127.0.0.1,GET,https://127.0.0.1:8001/,1708961621,,200,request
+5e52f3,127.0.0.1,GET,https://127.0.0.1:8001/styles/app.css,1708961621,a05611,404,request
+a05611,127.0.0.1,GET,https://127.0.0.1:8001/styles/app.css,1708961621,,404,request
