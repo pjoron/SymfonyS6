@@ -194,12 +194,12 @@
 }
 .container_register form label {
   color: white;
-  min-width: 60px;
+  min-width: 150px;
   padding-right: 20px;
   display: block;
   float: left;
 }
-.container_register form .form-control {
+.container_register form #registration_form_email, .container_register form #registration_form__token, .container_register form #registration_form_plainPassword {
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #1f304b;
@@ -207,7 +207,7 @@
   color: #D0D5DB;
   flex-grow: 1;
 }
-.container_register form .form-control:focus {
+.container_register form #registration_form_email:focus, .container_register form #registration_form__token:focus, .container_register form #registration_form_plainPassword:focus {
   outline: none;
   border-color: #1D4FD8;
   box-shadow: 0 0 0 0.2rem rgba(29, 79, 216, 0.25);
@@ -246,9 +246,10 @@
 }
 .container_login form label {
   color: white;
-  min-width: 120px;
+  min-width: 150px;
   padding-right: 20px;
-  text-align: right;
+  display: block;
+  float: left;
 }
 .container_login form .form-control {
   padding: 0.5rem;
