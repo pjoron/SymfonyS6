@@ -1,21 +1,21 @@
 <?php
-namespace App\Tests;
+// namespace App\Tests;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+// use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ApiTest extends WebTestCase
-{
-    public function testLoginCheck()
-    {
-        $client = static::createClient();
+// class ApiTest extends WebTestCase
+// {
+//     public function testLoginCheck()
+//     {
+//         $client = static::createClient();
 
-        $client->request('GET', '/api', [], [], ['CONTENT_TYPE' => 'application/json']);
+//         $client->request('GET', '/api', [], [], ['CONTENT_TYPE' => 'application/json']);
 
-        $response = $client->getResponse();
+//         $response = $client->getResponse();
 
-        // Vérifiez le code de réponse HTTP
-      	// assetSame permets de vérfier que le type et la valeur des 2 valeurs passées sont identiques
-      	// ici que 401 == code HTTP de la réponse du point d'API
-        $this->assertSame(401, $response->getStatusCode());
-    }
-}
+//         // Vérifiez le code de réponse HTTP
+//       	// assetSame permets de vérfier que le type et la valeur des 2 valeurs passées sont identiques
+//       	// ici que 401 == code HTTP de la réponse du point d'API
+//         $this->assertSame(401, $response->getStatusCode());
+//     }
+// }

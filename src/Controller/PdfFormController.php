@@ -64,9 +64,9 @@ class PdfFormController extends AbstractController
                 $entityManager->persist($pdf);
                 $entityManager->flush();
 
-                // Retournez le PDF généré
-                return new Response($convertedPdf, 200, [
-                    'Content-Type' => 'application/pdf',
+                $this->addFlash('success', 'PDF bien généré.');
+                return $this->redirectToRoute('app_pdf_form', [
+                    'pdfUrl' => $pdfFilePath 
                 ]);
             }
 
