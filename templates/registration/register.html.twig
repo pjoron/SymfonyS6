@@ -15,16 +15,18 @@
 
     {{ form_start(registrationForm) }}
             <div class="form-group">
-        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.email, {
+            label: 'Email :'
+        }) }}
         </div>
                 <div class="form-group">
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: 'Password :'
         }) }}
         </div>
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">S'inscrire</button>
     {{ form_end(registrationForm) }}
 
     </div>

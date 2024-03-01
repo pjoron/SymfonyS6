@@ -54,12 +54,12 @@ class RegistrationController extends AbstractController
             $user->setUpdateAt(new \DateTime());
             $user->setRoles(['ROLE_USER']);
     
-            // Récupérer l'abonnement gratuit (avec l'ID 1) et l'assigner à l'utilisateur
+            
             $freeSubscription = $entityManager->getRepository(Subs::class)->find(1);
             if ($freeSubscription) {
                 $user->setSubscriptionId($freeSubscription);
             }
-    
+            
             $entityManager->persist($user);
             $entityManager->flush();
     
